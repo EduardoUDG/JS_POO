@@ -1,13 +1,10 @@
-const User = {
-    name: 'Eduardo',
-    lastName: 'Chavez',
-    age: 20,
-};
 
+function User(name, age, email, status) {
+    this.name = name,
+    this.age = age,
+    this.email = email,
+    this.status = status
+}
 
-
-console.log(User);
-User.age = 21
-User.genero = "M"
-console.log(User);
-
+const person = new User('Lalo', 20, 'lalo@gmail.com', true)
+console.log(person) 
