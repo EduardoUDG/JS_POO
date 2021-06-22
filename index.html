@@ -1,14 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://ux.ed.team/css/styles.css?201803301710">
     <title>Document</title>
 </head>
 <body>
-    
 
-    <script src="./index.js"></script>
+
+    <div class="ed-grid">
+        <h1>EDteam Cursos</h1>
+        <form action="" id="formCursos">
+            <div class="ed-grid m-grid-4">
+                <div class="form-item">
+                    <label>
+                        Nombre:
+                        <input type="text" name="nombreCurso" required>
+                    </label>
+                </div>
+                <div class="form-item">
+                    <label>
+                        Picture:
+                        <input type="text" name="nombrePicture" required>
+                    </label>
+                </div>
+                <div class="form-item">
+                    <label>
+                        Lessons:
+                        <input type="number" min="1" name="nombreLessons" required>
+                    </label>
+                </div>
+                <div class="form-item m-py-3">                      
+                    <input type="submit" class="button" value="Crear curso">
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="ed-grid m-grid-4 s-grid-2 row-gap" id="cursos">
+    </div>
+
+
+    <script type="module" src="./scripts/index.js" ></script>
 </body>
 </html>
