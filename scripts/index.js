@@ -9,7 +9,7 @@ import Proffesor from "./classes/Proffesor.js";
 const elem = document.getElementById('cursos')
 
 function render(ObjLesson) {
-    const son  = document.createElement('div')
+    const son = document.createElement('div')
     son.classList.add('card')
     son.innerHTML = `
     <div class="img-container s-ratio-16-9 s-radius-tr s-radius-tl">
@@ -22,22 +22,30 @@ function render(ObjLesson) {
         </div>
     </div>     
     `;
-    elem.appendChild(son) 
+    elem.appendChild(son)
 }
 
 const form = document.getElementById('formCursos')
+const formUser = document.getElementById('formCursos')
 
 form.addEventListener('submit', event => {
     event.preventDefault()
     const target = event.target;
-    let name     = target.nombreCurso.value 
-    let picture  = target.nombrePicture.value 
-    let lessons  = target.nombreLessons.value
+    let name = target.nombreCurso.value
+    let picture = target.nombrePicture.value
+    let lessons = target.nombreLessons.value
 
-    const course = new Course(name, picture, lessons)
     render(course)
+    const course = new Course(name, picture, lessons)
     form.reset()
-}); 
+});
+
+
+
+
+
+
+
 
 
 const professor = new Proffesor('Alfredo', 'Gutierres', 'Alfredo@gmail.com', true, 10)
