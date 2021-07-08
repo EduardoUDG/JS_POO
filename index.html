@@ -13,8 +13,38 @@
 
     <div class="ed-grid">
         <h1>EDteam Cursos</h1>
-        <form action="" id="formCursos">
-            <div class="ed-grid m-grid-4">
+
+        <!-- Students Form -->
+        <form action="" id="formStudents" >
+            <div class="ed-grid m-grid-5">
+                <div class="form-item">
+                    <label>
+                        Nombre del estudiante:
+                        <input type="text" name="nombreEstudiante" required>
+                    </label>
+                </div>
+                <div class="form-item">
+                    <label>
+                        Apellido del estudiante:
+                        <input type="text" name="apellidoEstudiante" required>
+                    </label>
+                </div>
+                <div class="form-item">
+                    <label>
+                        Correo del estudiante:
+                        <input type="email" name="correoEstudiante" required>
+                    </label>
+                </div>
+                <div class="form-item m-py-3">                      
+                    <input type="submit" class="button" value="Crear Estudiante">
+                </div>
+            </div>
+        </form>
+
+
+        <!-- Courses form -->
+        <form action="" id="formCursos" >
+            <div class="ed-grid m-grid-5">
                 <div class="form-item">
                     <label>
                         Nombre:
@@ -36,9 +66,13 @@
                 <div class="form-item m-py-3">                      
                     <input type="submit" class="button" value="Crear curso">
                 </div>
+                <ul class="feature-list" id="users">
+                    <h3>Usuarios agregados</h3>
+                </ul>
             </div>
         </form>
     </div>
+    
     <div class="ed-grid m-grid-4 s-grid-2 row-gap" id="cursos">
     </div>
 

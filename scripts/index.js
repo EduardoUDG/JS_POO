@@ -2,31 +2,10 @@ import Course from "./classes/Course.js";
 import Student from "./classes/Student.js";
 import Proffesor from "./classes/Proffesor.js";
 
-
-// const html = new Course('HTML desde cero', 'https://edteam-media.s3.amazonaws.com/courses/big/26557907-0555-427e-a40c-6ff207f98d72.png', 10)
-// const css = new Course('CSS desde cero', 'https://edteam-media.s3.amazonaws.com/courses/big/daa72e4e-c5d0-406e-9f6d-01e646bf719b.png', 8)
-
 const elem = document.getElementById('cursos')
-
-function render(ObjLesson) {
-    const son = document.createElement('div')
-    son.classList.add('card')
-    son.innerHTML = `
-    <div class="img-container s-ratio-16-9 s-radius-tr s-radius-tl">
-        <img src="${ObjLesson.getPosts()}" />
-    </div>
-    <div class="card__data s-border s-radius-br s-radius-bl s-pxy-2">
-        <h3 class="t5 s-mb-2 s-center">${ObjLesson.getName()}</h3>
-        <div class="t5 s-mb-0 s-center">
-            <span class="small"># de clases: ${ObjLesson.getLessons()}</span>
-        </div>
-    </div>     
-    `;
-    elem.appendChild(son)
-}
-
+const listUsers = document.getElementById('users')
 const form = document.getElementById('formCursos')
-const formUser = document.getElementById('formCursos')
+const formStudents = document.getElementById('formStudents')
 
 form.addEventListener('submit', event => {
     event.preventDefault()
@@ -35,10 +14,51 @@ form.addEventListener('submit', event => {
     let picture = target.nombrePicture.value
     let lessons = target.nombreLessons.value
 
-    render(course)
     const course = new Course(name, picture, lessons)
+    render(course)
     form.reset()
 });
+
+formStudents.addEventListener('submit', event => {
+    event.preventDefault()
+    const target = event.target;
+    let name = target.nombreEstudiante.value
+    let lastName = target.apellidoEstudiante.value
+    let email = target.correoEstudiante.value
+
+    const student = new Student(name, lastName, email)
+    renderStu(student)
+    formStudents.reset()
+});
+
+
+
+
+function render(course) {
+    const div = document.createElement('div')
+    div.classList.add('card')
+    div.innerHTML = `
+    <div class="img-container s-ratio-16-9 s-radius-tr s-radius-tl">
+        <img src="${course.getPosts()}" />
+    </div>
+    <div class="card__data s-border s-radius-br s-radius-bl s-pxy-2">
+        <h3 class="t5 s-mb-2 s-center">${course.getName()}</h3>
+        <div class="t5 s-mb-0 s-center">
+            <span class="small"># de clases: ${course.getLessons()}</span>
+        </div>
+    </div>     
+    `;
+    elem.appendChild(div)
+}
+
+function renderStu(student) {
+    const div = document.createElement('li')
+    div.innerHTML = `${student.getName()}`;
+    listUsers.appendChild(div)
+}
+
+
+
 
 
 
@@ -58,6 +78,7 @@ const html = new Course('HTML desde cero', 'https://edteam-media.s3.amazonaws.co
 html.setInscribed([...html.getInscribed(), student1])
 html.setInscribed([...html.getInscribed(), student2])
 console.log(html)
+
 
 //* Crear un formulario para crear Usuarios
 //* Un listado para cear un profesor o usuario
